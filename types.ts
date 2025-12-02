@@ -15,7 +15,7 @@ export interface KPIItem {
   code: string; // e.g., 1.1
   name: string;
   maxPoints: number;
-  unit: string; // e.g., "10đ"
+  unit?: string; // Fixed: Made optional to match constants.ts definition
   checklist?: string[]; // Added field for detailed bullet points
   criteria: {
     [RatingLevel.GOOD]: KPILevelDetail;
