@@ -74,7 +74,7 @@ export const KPI_DATA: KPICategory[] = [
         criteria: {
           [RatingLevel.GOOD]: { label: 'Tốt', description: 'Không có gián đoạn cấp hơi', scorePercent: 1.0 },
           [RatingLevel.AVERAGE]: { label: 'Trung bình', description: 'Có sự cố, nhưng không phải bồi thường', scorePercent: 0.8 },
-          [RatingLevel.WEAK]: { label: 'Yếu', description: 'Để xảy ra sự giá đoạn cấp hơi phải bồi thường', scorePercent: 0.0 },
+          [RatingLevel.WEAK]: { label: 'Yếu', description: 'Để xảy ra sự gián đoạn cấp hơi phải bồi thường', scorePercent: 0.0 },
         },
       },
       {
@@ -125,12 +125,12 @@ export const KPI_DATA: KPICategory[] = [
         maxPoints: 10,
         unit: '10đ',
         checklist: [
-          'Giám sát tuân thủ đầy đủ quy định ATLD và PCCC theo ca/kíp',
+          'Giám sát tuân thủ đầy đủ quy định ATLĐ và PCCC theo ca/kíp',
           'Kiểm soát khí thải, nước thải đảm bảo đạt chuẩn môi trường',
           'Chỉ đạo khắc phục ngay khi có vi phạm và tổ chức huấn luyện lại',
         ],
         criteria: {
-          [RatingLevel.GOOD]: { label: 'Tốt', description: 'Khong có sự cố Khí Thải, ATLD & PCCC', scorePercent: 1.0 },
+          [RatingLevel.GOOD]: { label: 'Tốt', description: 'Không có sự cố Khí Thải, ATLĐ & PCCC', scorePercent: 1.0 },
           [RatingLevel.AVERAGE]: { label: 'Trung bình', description: 'Có vi phạm nhỏ, đã khắc phục ngay', scorePercent: 0.7 },
           [RatingLevel.WEAK]: { label: 'Yếu', description: 'Vi phạm nghiêm trọng hoặc tái diễn nhiều lần', scorePercent: 0.0 },
         },
@@ -190,25 +190,42 @@ export const KPI_DATA: KPICategory[] = [
         criteria: {
           [RatingLevel.GOOD]: { label: 'Tốt', description: 'Hoàn thành ≥98% hạng mục bảo trì', scorePercent: 1.0 },
           [RatingLevel.AVERAGE]: { label: 'Trung bình', description: 'Hoàn thành 70–80% hạng mục bảo trì', scorePercent: 0.7 },
-          [RatingLevel.WEAK]: { label: 'Yếu', description: 'Không Ngừng bảo trì đúng HĐ', scorePercent: 0 },
+          [RatingLevel.WEAK]: { label: 'Yếu', description: 'Không ngừng máy bảo trì đúng HĐ', scorePercent: 0 },
         },
       },
-   {
-id: '3.3',
-code: '3.3',
-name: 'Kiểm soát 5S',
-maxPoints: 6,
-unit: '6đ',
-checklist: [
-'Phát hiện và ghi nhận sai phạm 5S của các ca/kíp',
-'Xử lý  báo cáo đúng mức độ và đúng thời gian yêu cầu',
-'Huấn luyện lại và đề xuất cải tiến  khi lỗi tái diễn',
-],
-criteria: {
-[RatingLevel.GOOD]: { label: 'Tốt', description: 'Kiểm soát tốt 5S, không lỗi tái diễn', scorePercent: 1.0 },
-[RatingLevel.AVERAGE]: { label: 'Trung bình', description: 'Còn lỗi vi phạm nhẹ, ít tái diễn', scorePercent: 0.7 },
-[RatingLevel.WEAK]: { label: 'Yếu', description: '5S Không đạt lỗi  tái diễn thường xuyên', scorePercent: 0.0 },
-},
+      {
+        id: '3.3',
+        code: '3.3',
+        name: 'Kiểm soát 5S',
+        maxPoints: 6,
+        unit: '6đ',
+        checklist: [
+          'Phát hiện và ghi nhận sai phạm 5S của các ca/kíp',
+          'Xử lý báo cáo đúng mức độ và đúng thời gian yêu cầu',
+          'Huấn luyện lại và đề xuất cải tiến khi lỗi tái diễn',
+        ],
+        criteria: {
+          [RatingLevel.GOOD]: { label: 'Tốt', description: 'Kiểm soát tốt 5S, không lỗi tái diễn', scorePercent: 1.0 },
+          [RatingLevel.AVERAGE]: { label: 'Trung bình', description: 'Còn lỗi vi phạm nhẹ, ít tái diễn', scorePercent: 0.7 },
+          [RatingLevel.WEAK]: { label: 'Yếu', description: '5S không đạt, lỗi tái diễn thường xuyên', scorePercent: 0.0 },
+        },
+      },
+      {
+        id: '3.4',
+        code: '3.4',
+        name: 'Báo cáo bảo trì, thiết bị định kỳ và đột xuất',
+        maxPoints: 10,
+        unit: '10đ',
+        checklist: [
+          'Gửi đầy đủ báo cáo tổng hợp tuần/tháng đúng thời hạn',
+          'Báo cáo chi tiết tình trạng thiết bị – bảo trì định kỳ và đột xuất',
+          'Phân tích xu hướng hư hỏng và cảnh báo nguy cơ trước khi xảy ra',
+        ],
+        criteria: {
+          [RatingLevel.GOOD]: { label: 'Tốt', description: 'Báo cáo đầy đủ, chính xác và đúng thời hạn', scorePercent: 1.0 },
+          [RatingLevel.AVERAGE]: { label: 'Trung bình', description: 'Báo cáo trễ nhẹ hoặc phải nhắc nhở', scorePercent: 0.8 },
+          [RatingLevel.WEAK]: { label: 'Yếu', description: 'Không gửi báo cáo hoặc báo cáo không đúng', scorePercent: 0.0 },
+        },
       },
     ],
   },
@@ -241,7 +258,7 @@ criteria: {
         maxPoints: 6,
         unit: '6đ',
         checklist: [
-          'Đào tạo nhân viên mới và nhân viên chuyển vị trí ( có hồ sơ đào tạo)',
+          'Đào tạo nhân viên mới và nhân viên chuyển vị trí (có hồ sơ đào tạo)',
           'Truyền đạt đầy đủ quy trình và các thay đổi mới',
           'Đánh giá năng lực định kỳ và huấn luyện sau sự cố',
         ],
@@ -249,46 +266,6 @@ criteria: {
           [RatingLevel.GOOD]: { label: 'Tốt', description: '100% nhân viên mới được đào tạo đạt yêu cầu', scorePercent: 1.0 },
           [RatingLevel.AVERAGE]: { label: 'Trung bình', description: 'Đào tạo đạt yêu cầu ở mức khá (70-94%)', scorePercent: 0.7 },
           [RatingLevel.WEAK]: { label: 'Yếu', description: 'Công tác đào tạo chưa đạt yêu cầu (<70%)', scorePercent: 0.0 },
-        },
-      },
-    ],
-  },
-
-  {
-    id: 'cat_5',
-    name: '5. BÁO CÁO SẢN XUẤT',
-    items: [
-      {
-        id: '5.1',
-        code: '5.1',
-        name: 'Báo cáo bảo trì, thiết bị định kỳ và đột xuất',
-        maxPoints: 6,
-        unit: '6đ',
-        checklist: [
-          'Gửi đầy đủ báo cáo tổng hợp tuần/tháng đúng thời hạn',
-          'Báo cáo chi tiết tình trạng thiết bị – bảo trì định kỳ và đột xuất',
-          'Phân tích xu hướng hư hỏng và cảnh báo nguy cơ trước khi xảy ra',
-        ],
-        criteria: {
-          [RatingLevel.GOOD]: { label: 'Tốt', description: 'Báo cáo đầy đủ, chính xác và đúng thời hạn', scorePercent: 1.0 },
-          [RatingLevel.AVERAGE]: { label: 'Trung bình', description: 'Báo cáo trễ nhẹ hoặc phải nhắc nhở', scorePercent: 0.8 },
-          [RatingLevel.WEAK]: { label: 'Yếu', description: 'Không gửi báo cáo hoặc báo cáo không đúng', scorePercent: 0.0 },
-        },
-      },
-      {
-        id: '5.2',
-        code: '5.2',
-        name: 'Phối hợp: Khách hàng nội bộ',
-        maxPoints: 4,
-        unit: '4đ',
-        checklist: [
-          'Phối hợp hiệu quả với các phòng ban nội bộ để đảm bảo thông tin xuyên suốt',
-          'Giao tiếp chuẩn mực và xử lý xung đột theo tinh thần hợp tác',
-        ],
-        criteria: {
-          [RatingLevel.GOOD]: { label: 'Tốt', description: 'Phối hợp tích cực, hiệu quả, không xung đột', scorePercent: 1.0 },
-          [RatingLevel.AVERAGE]: { label: 'Trung bình', description: 'Có phát sinh mâu thuẫn nhưng đã giải quyết', scorePercent: 0.5 },
-          [RatingLevel.WEAK]: { label: 'Yếu', description: 'Phối hợp kém, gây ảnh hưởng công việc chung', scorePercent: 0.0 },
         },
       },
     ],

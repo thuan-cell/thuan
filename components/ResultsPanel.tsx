@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { Eye, Zap, Activity, ShieldCheck, Wrench, Users, FileBarChart } from 'lucide-react';
+import { Eye, Zap, Activity, ShieldCheck, Wrench, Users } from 'lucide-react';
 
 interface CategoryScore {
   id: string;
@@ -58,14 +59,50 @@ const ResultsPanel: React.FC<ResultsPanelProps> = ({
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (percent / 100) * circumference;
 
-  // Helper to get icon
-  const getIcon = (shortName: string) => {
-    if (shortName === "Vận hành") return <Activity size={16} className="text-indigo-500" />;
-    if (shortName === "An toàn") return <ShieldCheck size={16} className="text-emerald-500" />;
-    if (shortName === "Thiết bị") return <Wrench size={16} className="text-amber-500" />;
-    if (shortName === "Nhân sự") return <Users size={16} className="text-rose-500" />;
-    if (shortName === "Báo cáo") return <FileBarChart size={16} className="text-purple-500" />;
-    return <Activity size={16} />;
+  // Helper to get icon and style based on shortName (matching InputSection)
+  const getCategoryStyle = (shortName: string) => {
+    switch (shortName) {
+      case "Vận hành":
+        return {
+           icon: <Activity size={18} strokeWidth={2.5} />,
+           bg: "bg-indigo-50 dark:bg-indigo-900/20",
+           text: "text-indigo-500 dark:text-indigo-400",
+           border: "border-indigo-100 dark:border-indigo-500/20",
+           bar: "bg-indigo-500"
+        };
+      case "An toàn":
+        return {
+           icon: <ShieldCheck size={18} strokeWidth={2.5} />,
+           bg: "bg-emerald-50 dark:bg-emerald-900/20",
+           text: "text-emerald-500 dark:text-emerald-400",
+           border: "border-emerald-100 dark:border-emerald-500/20",
+           bar: "bg-emerald-500"
+        };
+      case "Thiết bị":
+        return {
+           icon: <Wrench size={18} strokeWidth={2.5} />,
+           bg: "bg-amber-50 dark:bg-amber-900/20",
+           text: "text-amber-500 dark:text-amber-400",
+           border: "border-amber-100 dark:border-amber-500/20",
+           bar: "bg-amber-500"
+        };
+      case "Nhân sự":
+        return {
+           icon: <Users size={18} strokeWidth={2.5} />,
+           bg: "bg-rose-50 dark:bg-rose-900/20",
+           text: "text-rose-500 dark:text-rose-400",
+           border: "border-rose-100 dark:border-rose-500/20",
+           bar: "bg-rose-500"
+        };
+      default:
+        return {
+           icon: <Activity size={18} strokeWidth={2.5} />,
+           bg: "bg-slate-50 dark:bg-slate-800",
+           text: "text-slate-500",
+           border: "border-slate-100 dark:border-slate-700",
+           bar: "bg-slate-500"
+        };
+    }
   }
 
   return (
@@ -139,39 +176,36 @@ const ResultsPanel: React.FC<ResultsPanelProps> = ({
 
             {/* 2. CATEGORY BREAKDOWN (Clean List) */}
             <div className="flex flex-col gap-3.5 px-1">
-                {categoryScores.map((cat, idx) => (
-                    <div key={cat.id} className="group flex items-center gap-3">
-                        {/* Icon Box */}
-                        <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-center shrink-0">
-                            {getIcon(cat.shortName)}
-                        </div>
-                        
-                        {/* Bar & Text */}
-                        <div className="flex-1 min-w-0 flex flex-col gap-1.5">
-                            <div className="flex justify-between items-end leading-none">
-                                <span className="text-[11px] font-bold text-slate-600 dark:text-slate-300 uppercase truncate">
-                                    {cat.shortName}
-                                </span>
-                                <span className="text-[11px] font-bold text-slate-800 dark:text-white">
-                                    {cat.score}<span className="text-[9px] text-slate-400 font-medium ml-0.5">/{cat.max}</span>
-                                </span>
+                {categoryScores.map((cat, idx) => {
+                    const style = getCategoryStyle(cat.shortName);
+                    return (
+                        <div key={cat.id} className="group flex items-center gap-3">
+                            {/* Icon Box */}
+                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border ${style.bg} ${style.border} ${style.text}`}>
+                                {style.icon}
                             </div>
-                            {/* Modern Slim Bar */}
-                            <div className="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                                <div 
-                                    className={`h-full rounded-full transition-all duration-700 ease-out opacity-80 group-hover:opacity-100 ${
-                                        idx === 0 ? 'bg-indigo-500' :
-                                        idx === 1 ? 'bg-emerald-500' :
-                                        idx === 2 ? 'bg-amber-500' :
-                                        idx === 3 ? 'bg-rose-500' :
-                                        'bg-purple-500'
-                                    }`}
-                                    style={{ width: `${cat.percentage}%` }}
-                                ></div>
+                            
+                            {/* Bar & Text */}
+                            <div className="flex-1 min-w-0 flex flex-col gap-1.5">
+                                <div className="flex justify-between items-end mb-1">
+                                    <span className="text-[11px] font-bold text-slate-600 dark:text-slate-300 uppercase truncate leading-normal py-0.5">
+                                        {cat.shortName}
+                                    </span>
+                                    <span className="text-[11px] font-bold text-slate-800 dark:text-white">
+                                        {cat.score}<span className="text-[9px] text-slate-400 font-medium ml-0.5">/{cat.max}</span>
+                                    </span>
+                                </div>
+                                {/* Modern Slim Bar */}
+                                <div className="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                    <div 
+                                        className={`h-full rounded-full transition-all duration-700 ease-out opacity-80 group-hover:opacity-100 ${style.bar}`}
+                                        style={{ width: `${cat.percentage}%` }}
+                                    ></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
         </div>
 

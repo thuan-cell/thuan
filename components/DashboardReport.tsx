@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { KPI_DATA } from '../constants';
 import { EvaluationState } from '../types';
@@ -41,7 +42,8 @@ const DashboardReport: React.FC<DashboardReportProps> = ({
   const [year, month] = selectedMonth.split('-');
   const reportDateObj = employeeInfo.reportDate ? new Date(employeeInfo.reportDate) : new Date();
 
-  const COLORS = ['#3b82f6', '#22c55e', '#eab308', '#f97316'];
+  // Updated colors to match App theme: Indigo (Vận hành), Emerald (An toàn), Amber (Thiết bị), Rose (Nhân sự)
+  const COLORS = ['#6366f1', '#10b981', '#f59e0b', '#f43f5e'];
 
   return (
     // Explicitly set 210mm width as max to match print container, but w-full to fill it
@@ -209,7 +211,7 @@ const DashboardReport: React.FC<DashboardReportProps> = ({
                                         rating.level === 'AVERAGE' ? 'bg-yellow-50 text-yellow-700 border-yellow-200' :
                                         'bg-red-50 text-red-700 border-red-200'
                                         }`}>
-                                        {rating.level === 'GOOD' ? 'TỐT' : rating.level === 'AVERAGE' ? 'KHÁ' : 'YẾU'}
+                                        {rating.level === 'GOOD' ? 'TỐT' : rating.level === 'AVERAGE' ? 'TRUNG BÌNH' : 'YẾU'}
                                         </span>
                                     ) : <span className="text-slate-300">-</span>}
                                 </td>
