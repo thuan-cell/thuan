@@ -157,7 +157,7 @@ export const KPI_DATA: KPICategory[] = [
 
   {
     id: 'cat_3',
-    name: '3. QUẢN LÝ THIẾT BỊ',
+    name: '3. THIẾT BỊ',
     items: [
       {
         id: '3.1',
@@ -232,7 +232,7 @@ export const KPI_DATA: KPICategory[] = [
 
   {
     id: 'cat_4',
-    name: '4. QUẢN LÝ NHÂN SỰ',
+    name: '4.  NHÂN SỰ',
     items: [
       {
         id: '4.1',

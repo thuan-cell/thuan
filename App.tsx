@@ -236,19 +236,19 @@ function App() {
               {/* WIDENED CONTAINER */}
               <div className="p-4 md:p-8 lg:p-10 space-y-6 max-w-[1600px] mx-auto">
                 
-                {/* Employee Info Card - HARMONIZED */}
-                <div className="group relative bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-[24px] shadow-sm hover:shadow-md border border-slate-200/60 dark:border-slate-800/60 overflow-hidden transition-all duration-500">
-                  {/* Subtle Accent Line */}
-                  <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent opacity-50"></div>
+                {/* Employee Info Card - HARMONIZED & PROMINENT */}
+                <div className="group relative bg-white dark:bg-[#111827] rounded-[24px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] border border-indigo-100 dark:border-indigo-500/30 overflow-hidden transition-all duration-500 hover:shadow-indigo-500/10 dark:hover:shadow-indigo-500/10 hover:border-indigo-200 dark:hover:border-indigo-500/50 hover:-translate-y-0.5">
+                  {/* Stronger Top Gradient Accent */}
+                  <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500"></div>
 
-                  <div className="px-6 md:px-8 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                  <div className="px-6 md:px-8 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 relative z-10 bg-slate-50/50 dark:bg-indigo-950/10 border-b border-slate-100 dark:border-indigo-500/20">
                     <div className="flex items-center gap-4">
-                      <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400">
-                        <User size={22} strokeWidth={2} />
+                      <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-white dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 shadow-sm border border-indigo-50 dark:border-indigo-500/30">
+                        <User size={26} strokeWidth={2} />
                       </div>
                       <div>
-                        <h2 className="text-lg font-bold text-slate-800 dark:text-white leading-tight">Thông tin nhân sự</h2>
-                        <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">Cập nhật hồ sơ đánh giá định kỳ</p>
+                        <h2 className="text-xl font-bold text-slate-800 dark:text-white leading-tight">Thông tin nhân sự</h2>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 font-medium mt-0.5">Cập nhật hồ sơ đánh giá định kỳ</p>
                       </div>
                     </div>
                     
@@ -262,7 +262,7 @@ function App() {
                       />
                       <label 
                         htmlFor="logo-upload" 
-                        className="cursor-pointer group/btn flex items-center gap-2 text-[11px] font-bold uppercase tracking-wide bg-slate-50 dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 px-4 py-2.5 rounded-xl transition-all border border-slate-200 dark:border-slate-700/50 hover:border-indigo-300 dark:hover:border-indigo-600 hover:text-indigo-600 dark:hover:text-indigo-400"
+                        className="cursor-pointer group/btn flex items-center gap-2 text-[11px] font-bold uppercase tracking-wide bg-white dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 px-5 py-3 rounded-xl transition-all border border-slate-200 dark:border-slate-700/50 hover:border-indigo-300 dark:hover:border-indigo-600 hover:text-indigo-600 dark:hover:text-indigo-400 shadow-sm"
                       >
                         {companyLogo ? (
                           <>
@@ -273,7 +273,7 @@ function App() {
                           </>
                         ) : (
                           <>
-                            <Upload size={14} className="group-hover/btn:-translate-y-0.5 transition-transform" />
+                            <Upload size={16} className="group-hover/btn:-translate-y-0.5 transition-transform" />
                             <span>Tải Logo</span>
                           </>
                         )}
@@ -281,23 +281,23 @@ function App() {
                     </div>
                   </div>
 
-                  <div className="px-6 md:px-8 pb-8">
+                  <div className="px-6 md:px-8 py-8 bg-white dark:bg-[#111827]">
                     {/* Changed Grid to 3 columns for 2-row layout */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                       
                       {/* 1. Name */}
-                      <div className="space-y-1.5 group/input">
-                            <label className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1 group-focus-within/input:text-indigo-500 transition-colors">
+                      <div className="space-y-2 group/input">
+                            <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider ml-1 group-focus-within/input:text-indigo-600 dark:group-focus-within/input:text-indigo-400 transition-colors">
                               Họ và tên nhân viên
                             </label>
                             <div className="relative transition-all duration-300 transform group-focus-within/input:-translate-y-0.5">
-                              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 group-focus-within/input:text-indigo-500 transition-colors">
-                                <User size={16} />
+                              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within/input:text-indigo-500 transition-colors">
+                                <User size={18} />
                               </div>
                               <input 
                                 type="text" 
                                 placeholder="Nhập họ tên đầy đủ..."
-                                className="w-full pl-10 pr-4 py-3 bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 placeholder:text-slate-400/70 shadow-sm focus:ring-2 focus:ring-indigo-500/10 focus:border-indigo-500 dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-slate-900 outline-none transition-all"
+                                className="w-full pl-11 pr-4 py-3.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-semibold text-slate-800 dark:text-slate-100 placeholder:text-slate-400/70 shadow-sm focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-slate-950 outline-none transition-all"
                                 value={employeeInfo.name}
                                 onChange={(e) => handleInfoChange('name', e.target.value)}
                               />
@@ -305,18 +305,18 @@ function App() {
                       </div>
 
                       {/* 2. ID */}
-                      <div className="space-y-1.5 group/input">
-                            <label className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1 group-focus-within/input:text-indigo-500 transition-colors">
+                      <div className="space-y-2 group/input">
+                            <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider ml-1 group-focus-within/input:text-indigo-600 dark:group-focus-within/input:text-indigo-400 transition-colors">
                               Mã nhân viên
                             </label>
                             <div className="relative transition-all duration-300 transform group-focus-within/input:-translate-y-0.5">
-                              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 group-focus-within/input:text-indigo-500 transition-colors">
-                                <CreditCard size={16} />
+                              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within/input:text-indigo-500 transition-colors">
+                                <CreditCard size={18} />
                               </div>
                               <input 
                                 type="text" 
                                 placeholder="VD: NV-001"
-                                className="w-full pl-10 pr-4 py-3 bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 placeholder:text-slate-400/70 shadow-sm focus:ring-2 focus:ring-indigo-500/10 focus:border-indigo-500 dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-slate-900 outline-none transition-all"
+                                className="w-full pl-11 pr-4 py-3.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-semibold text-slate-800 dark:text-slate-100 placeholder:text-slate-400/70 shadow-sm focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-slate-950 outline-none transition-all"
                                 value={employeeInfo.id}
                                 onChange={(e) => handleInfoChange('id', e.target.value)}
                               />
@@ -324,18 +324,18 @@ function App() {
                       </div>
 
                       {/* 3. Position */}
-                      <div className="space-y-1.5 group/input">
-                            <label className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1 group-focus-within/input:text-indigo-500 transition-colors">
+                      <div className="space-y-2 group/input">
+                            <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider ml-1 group-focus-within/input:text-indigo-600 dark:group-focus-within/input:text-indigo-400 transition-colors">
                               Chức vụ
                             </label>
                             <div className="relative transition-all duration-300 transform group-focus-within/input:-translate-y-0.5">
-                              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 group-focus-within/input:text-indigo-500 transition-colors">
-                                <Briefcase size={16} />
+                              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within/input:text-indigo-500 transition-colors">
+                                <Briefcase size={18} />
                               </div>
                               <input 
                                 type="text" 
                                 placeholder="VD: Trưởng ca / Nhân viên"
-                                className="w-full pl-10 pr-4 py-3 bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 placeholder:text-slate-400/70 shadow-sm focus:ring-2 focus:ring-indigo-500/10 focus:border-indigo-500 dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-slate-900 outline-none transition-all"
+                                className="w-full pl-11 pr-4 py-3.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-semibold text-slate-800 dark:text-slate-100 placeholder:text-slate-400/70 shadow-sm focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-slate-950 outline-none transition-all"
                                 value={employeeInfo.position}
                                 onChange={(e) => handleInfoChange('position', e.target.value)}
                               />
@@ -343,18 +343,18 @@ function App() {
                       </div>
 
                       {/* 4. Department */}
-                      <div className="space-y-1.5 group/input">
-                            <label className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1 group-focus-within/input:text-indigo-500 transition-colors">
+                      <div className="space-y-2 group/input">
+                            <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider ml-1 group-focus-within/input:text-indigo-600 dark:group-focus-within/input:text-indigo-400 transition-colors">
                               Bộ phận / Phòng ban
                             </label>
                             <div className="relative transition-all duration-300 transform group-focus-within/input:-translate-y-0.5">
-                              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 group-focus-within/input:text-indigo-500 transition-colors">
-                                <Building2 size={16} />
+                              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within/input:text-indigo-500 transition-colors">
+                                <Building2 size={18} />
                               </div>
                               <input 
                                 type="text" 
                                 placeholder="VD: Vận Hành Lò Hơi"
-                                className="w-full pl-10 pr-4 py-3 bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 placeholder:text-slate-400/70 shadow-sm focus:ring-2 focus:ring-indigo-500/10 focus:border-indigo-500 dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-slate-900 outline-none transition-all"
+                                className="w-full pl-11 pr-4 py-3.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-semibold text-slate-800 dark:text-slate-100 placeholder:text-slate-400/70 shadow-sm focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-slate-950 outline-none transition-all"
                                 value={employeeInfo.department}
                                 onChange={(e) => handleInfoChange('department', e.target.value)}
                               />
@@ -362,21 +362,21 @@ function App() {
                       </div>
 
                       {/* 5. Report Month */}
-                      <div className="space-y-1.5 group/input">
-                        <label className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1 group-focus-within/input:text-indigo-500 transition-colors">
+                      <div className="space-y-2 group/input">
+                        <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider ml-1 group-focus-within/input:text-indigo-600 dark:group-focus-within/input:text-indigo-400 transition-colors">
                           Kỳ đánh giá
                         </label>
                         <div className="relative transition-all duration-300 transform group-focus-within/input:-translate-y-0.5">
                           <div 
                               onClick={() => monthInputRef.current?.showPicker()}
-                              className="absolute inset-y-0 left-0 pl-3.5 flex items-center cursor-pointer text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 group-focus-within/input:text-indigo-500 transition-colors z-10"
+                              className="absolute inset-y-0 left-0 pl-4 flex items-center cursor-pointer text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 group-focus-within/input:text-indigo-500 transition-colors z-10"
                           >
-                              <Calendar size={16} />
+                              <Calendar size={18} />
                           </div>
                           <input 
                             ref={monthInputRef}
                             type="month" 
-                            className="w-full pl-10 pr-4 py-3 bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 shadow-sm focus:ring-2 focus:ring-indigo-500/10 focus:border-indigo-500 dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-slate-900 outline-none transition-all cursor-pointer"
+                            className="w-full pl-11 pr-4 py-3.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-semibold text-slate-800 dark:text-slate-100 shadow-sm focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-slate-950 outline-none transition-all cursor-pointer"
                             value={selectedMonth}
                             onChange={(e) => setSelectedMonth(e.target.value)}
                           />
@@ -384,21 +384,21 @@ function App() {
                       </div>
 
                       {/* 6. Report Date */}
-                      <div className="space-y-1.5 group/input">
-                        <label className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider ml-1 group-focus-within/input:text-indigo-500 transition-colors">
+                      <div className="space-y-2 group/input">
+                        <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider ml-1 group-focus-within/input:text-indigo-600 dark:group-focus-within/input:text-indigo-400 transition-colors">
                           Ngày lập
                         </label>
                         <div className="relative transition-all duration-300 transform group-focus-within/input:-translate-y-0.5">
                           <div 
                               onClick={() => dateInputRef.current?.showPicker()}
-                              className="absolute inset-y-0 left-0 pl-3.5 flex items-center cursor-pointer text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 group-focus-within/input:text-indigo-500 transition-colors z-10"
+                              className="absolute inset-y-0 left-0 pl-4 flex items-center cursor-pointer text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 group-focus-within/input:text-indigo-500 transition-colors z-10"
                           >
-                              <Calendar size={16} />
+                              <Calendar size={18} />
                           </div>
                           <input 
                             ref={dateInputRef}
                             type="date" 
-                            className="w-full pl-10 pr-4 py-3 bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 shadow-sm focus:ring-2 focus:ring-indigo-500/10 focus:border-indigo-500 dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-slate-900 outline-none transition-all cursor-pointer"
+                            className="w-full pl-11 pr-4 py-3.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-semibold text-slate-800 dark:text-slate-100 shadow-sm focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-slate-950 outline-none transition-all cursor-pointer"
                             value={employeeInfo.reportDate}
                             onChange={(e) => handleInfoChange('reportDate', e.target.value)}
                           />

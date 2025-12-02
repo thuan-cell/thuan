@@ -54,8 +54,8 @@ const ResultsPanel: React.FC<ResultsPanelProps> = ({
   }
 
   // Circular Progress Calculation
-  // Reduced radius for compactness
-  const radius = 62;
+  // Increased radius for better impact
+  const radius = 84; 
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (percent / 100) * circumference;
 
@@ -124,10 +124,10 @@ const ResultsPanel: React.FC<ResultsPanelProps> = ({
         {/* CONTENT WRAPPER */}
         <div className="flex-1 flex flex-col justify-evenly min-h-0">
             
-            {/* 1. HERO CIRCLE SCORE (Harmonized) */}
-            <div className="flex flex-col items-center justify-center relative py-2">
+            {/* 1. HERO CIRCLE SCORE (Larger & More Beautiful) */}
+            <div className="flex flex-col items-center justify-center relative py-4">
                 
-                <div className="relative w-40 h-40 flex items-center justify-center">
+                <div className="relative w-56 h-56 flex items-center justify-center">
                     {/* Background Circle */}
                     <svg className="w-full h-full transform -rotate-90">
                         <circle
@@ -136,8 +136,9 @@ const ResultsPanel: React.FC<ResultsPanelProps> = ({
                         r={radius}
                         fill="transparent"
                         stroke="currentColor"
-                        strokeWidth="6"
-                        className="text-slate-100 dark:text-slate-800"
+                        strokeWidth="10"
+                        strokeLinecap="round"
+                        className="text-slate-100 dark:text-slate-800/50"
                         />
                         {/* Foreground Circle */}
                         <circle
@@ -146,11 +147,12 @@ const ResultsPanel: React.FC<ResultsPanelProps> = ({
                         r={radius}
                         fill="transparent"
                         stroke="url(#gradient)"
-                        strokeWidth="6"
+                        strokeWidth="10"
                         strokeDasharray={circumference}
                         strokeDashoffset={strokeDashoffset}
                         strokeLinecap="round"
                         className="transition-all duration-1000 ease-out"
+                        style={{ filter: 'drop-shadow(0px 0px 6px rgba(0,0,0,0.2))' }}
                         />
                         <defs>
                         <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -162,12 +164,12 @@ const ResultsPanel: React.FC<ResultsPanelProps> = ({
 
                     {/* Center Content */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
-                        <span className="text-4xl font-bold text-slate-800 dark:text-white tracking-tighter">
+                        <span className="text-6xl font-extrabold text-slate-800 dark:text-white tracking-tighter drop-shadow-sm">
                             {totalScore}
                         </span>
-                        <div className="text-[10px] text-slate-400 font-medium -mt-1 mb-2">/ 100 điểm</div>
+                        <div className="text-xs text-slate-400 font-bold uppercase tracking-wider mt-0 mb-3 opacity-80">/ 100 điểm</div>
                         
-                        <div className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border ${rankingColor} ${rankingBg} border-current/10`}>
+                        <div className={`px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest border shadow-sm ${rankingColor} ${rankingBg} border-current/10`}>
                             {ranking}
                         </div>
                     </div>
@@ -175,7 +177,7 @@ const ResultsPanel: React.FC<ResultsPanelProps> = ({
             </div>
 
             {/* 2. CATEGORY BREAKDOWN (Clean List) */}
-            <div className="flex flex-col gap-3.5 px-1">
+            <div className="flex flex-col gap-3.5 px-2">
                 {categoryScores.map((cat, idx) => {
                     const style = getCategoryStyle(cat.shortName);
                     return (
